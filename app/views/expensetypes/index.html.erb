@@ -1,0 +1,28 @@
+<% if @expensetypes.empty? %>
+    <p>There aren't any Expense types defined in the system. You can start by creating one.</p>
+<% else %>
+    <h3>Known Expense Types:</h3>
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+      <% @expensetypes.each do |expensetype| %>
+          <tr>
+            <td><%= expensetype.name %></td>
+            <td><%= expensetype.description %></td>
+            <td><%= link_to 'Show', expensetype %></td>
+            <td><%= link_to 'Edit', edit_expensetype_path(expensetype) %></td>
+            <td><%= link_to 'Destroy', expensetype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+    </table>
+<% end %>
+
+<br />
+
+<%= link_to 'New Expense type', new_expensetype_path %>

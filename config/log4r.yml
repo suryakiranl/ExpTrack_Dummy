@@ -1,0 +1,26 @@
+# Source: http://stackoverflow.com/questions/5664136/how-to-configure-log4r-with-rails-3-0-x
+
+log4r_config:
+  # define all loggers ...
+  loggers:
+    - name      : production
+      level     : WARN
+      trace     : 'false'
+      outputters :
+      - datefile
+    - name      : development
+      level     : DEBUG
+      trace     : 'true'
+      outputters :
+      - datefile
+
+  # define all outputters (incl. formatters)
+  outputters:
+  - type: DateFileOutputter
+    name: datefile
+    dirname: "log"
+    filename: "exp_tracker.log" # notice the file extension is needed!
+    formatter:
+      date_pattern: '%H:%M:%S'
+      pattern     : '%d %l: %m '
+      type        : PatternFormatter

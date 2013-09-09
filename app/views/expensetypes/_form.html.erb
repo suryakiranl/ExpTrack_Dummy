@@ -1,0 +1,25 @@
+<%= form_for(@expensetype) do |f| %>
+  <% if @expensetype.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@expensetype.errors.count, "error") %> prohibited this expensetype from being saved:</h4>
+
+      <ul>
+      <% @expensetype.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

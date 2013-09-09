@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<h3>Expense type details: </h3>
+<p>
+  <b>Name:</b>
+  <%= @expensetype.name %>
+  <br />
+  <b>Description:</b>
+  <%= @expensetype.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_expensetype_path(@expensetype) %> |
+<%= link_to 'Back', expensetypes_path %>
